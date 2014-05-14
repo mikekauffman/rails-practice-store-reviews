@@ -1,0 +1,23 @@
+<ul>
+<% @products.each do |product| %>
+    <li>
+      <%= product.name %>
+    </li>
+    <li>
+      <%= product.hardcover_price %> (Hardcover)
+    </li>
+    <li>
+      <%= product.softcover_price %> (Softcover)
+    </li>
+    <li>
+      <img src='<%= product.image_url %>'>
+    </li>
+    <li>
+      <%= product.description %>
+    </li>
+    <li>
+      <%= product.published_date %>
+    </li>
+
+<% end %>
+</ul>
