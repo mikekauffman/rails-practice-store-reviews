@@ -10,7 +10,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: Lni6iUleQqWH+6KlhnVg0/bX3eKcn6nPYSNiC4IKJA5e8pLEkxOvXTOcybvE+Dpt4EhqthOpB4F+tjDw80crB/ci8KPoCbdpngme355wuPCYGlNAbywyM/G02oa6xnEVPSV345fYwCJFX2UtJaNviWxTBmB6lv19gqhNhgU4s/8=
+    secure: olDQzWCnGc0tY3qADbosBL0Mad7tREp9BKM5LkvsEWWCD9pHuclOR3HYRgGQDxxImVlEUkfZffVIimq9FRNxvvZsE9nedo93gZjlAAw5cpCG/+wYcIUIhQcPNNR64FZNjqHnst5LSeLEB577vyi22odCSuPRB3RKJryJ21eUITI=
   app: g2-store-staging
   on:
     repo: gSchool/g2-store
