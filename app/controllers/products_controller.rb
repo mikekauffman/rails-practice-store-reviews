@@ -10,9 +10,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(allowed_parameters)
     if @product.save
-      redirect_to products_path
+      redirect_to products_path, alert: "Product successfully added"
     else
-      render :new
+      render :new, alert: "Something went wrong"
     end
   end
 

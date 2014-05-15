@@ -2,9 +2,6 @@
   margin-top: 2em;
   margin-left: 15%;
 
-  .errors {
-  }
-
   .form_input {
     padding-bottom: 1em;
     font-size: 1.2em;
@@ -20,9 +17,11 @@
       vertical-align: top;
     }
     textarea {
+      font-size: 20px;
       height: 100px;
       width: 300px;
       border: 2px solid black;
+      resize: none;
     }
   }
 

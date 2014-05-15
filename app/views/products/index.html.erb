@@ -1,4 +1,7 @@
 <div class="content_container">
+
+  <p class="flash_notice"><%= flash[:alert] %></p>
+
   <% @products.each do |product| %>
     <div class="product_container">
       <div class="product_picture">

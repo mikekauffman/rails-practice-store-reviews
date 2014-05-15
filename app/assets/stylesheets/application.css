@@ -65,3 +65,8 @@ ul.errors {
     margin-left: 0;
     padding: .2em 0;
 }
+.flash_notice {
+    background-color: lightgreen;
+    padding: 15px;
+    color: darkred;
+}
