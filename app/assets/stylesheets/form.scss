@@ -1,0 +1,37 @@
+.form_container {
+  margin-top: 2em;
+  margin-left: 15%;
+
+  .errors {
+  }
+
+  .form_input {
+    padding-bottom: 1em;
+    font-size: 1.2em;
+    input {
+      font-size: 1em;
+      padding: 1px;
+      width: 200px;
+      border: 2px solid black;
+    }
+    label {
+      display: inline-block;
+      width: 160px;
+      vertical-align: top;
+    }
+    textarea {
+      height: 100px;
+      width: 300px;
+      border: 2px solid black;
+    }
+  }
+
+  .button {
+    input[type=submit] {
+      font-size: 1em;
+      margin-left: 164px;
+      background-color: white;
+      box-shadow: 2px 2px 0;
+    }
+  }
+}

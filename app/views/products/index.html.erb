@@ -10,7 +10,9 @@
           <%= product.name %>
         </li>
         <li>
-          <%= product.published_date.strftime("(%b %-d, %Y)") %>
+          <% if product.published_date %>
+            <%= product.published_date.strftime("(%b %-d, %Y)") %>
+          <% end %>
         </li>
         <div class="product_price">
           <li>
