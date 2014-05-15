@@ -6,7 +6,7 @@ describe Product do
     new_product.name = "Making Bricks with 3D Printers"
     new_product.hardcover_price = 19.99
     new_product.softcover_price = 9.99
-    new_product.image_url = 'http://imgur.com/Y03NQEn'
+    new_product.image_url = 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg'
     new_product.description = 'For the poor programmer'
     new_product.published_date = ''
 
