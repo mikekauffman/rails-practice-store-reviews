@@ -10,6 +10,6 @@ feature 'shopping for products' do
     expect(page).to have_content "9.99"
     expect(page).to have_content "(Hardcover)"
     expect(page).to have_content "(Softcover)"
-    page.has_css?('li', :text => 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg', :visible => true)
+    page.has_css?(:text => 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg', :visible => true)
   end
 end
