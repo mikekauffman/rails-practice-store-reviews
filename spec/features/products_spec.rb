@@ -5,7 +5,7 @@ feature 'shopping for products' do
     visit '/products'
 
     expect(page).to have_content "Making Bricks With 3D-Printers"
-    expect(page).to have_content "2014-01-01"
+    expect(page).to have_content "(Jan 1, 2014)"
     expect(page).to have_content "19.99"
     expect(page).to have_content "9.99"
     expect(page).to have_content "(Hardcover)"
