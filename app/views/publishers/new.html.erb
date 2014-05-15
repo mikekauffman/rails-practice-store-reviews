@@ -1,8 +1,18 @@
-<%= form_for @publisher do |t| %>
-  <%= t.label :name %>
-  <%= t.text_field :name %>
-
-  <%= t.label :city%>
-  <%= t.text_field :city %>
-  <%= t.submit 'Save Publisher' %>
-<% end %>
+<div class="content_container">
+  <div class="form_container">
+    <h1>Publisher</h1>
+    <%= form_for @publisher do |t| %>
+      <div class="form_input">
+        <%= t.label :name %>
+        <%= t.text_field :name %>
+      </div>
+      <div class="form_input">
+        <%= t.label :city %>
+        <%= t.text_field :city %>
+      </div>
+      <div class="button">
+        <%= t.submit 'Save Publisher' %>
+      </div>
+    <% end %>
+  </div>
+</div>
