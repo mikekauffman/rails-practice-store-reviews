@@ -1,14 +1,22 @@
-<%= form_for @author do |f| %>
-
-<%= f.label :first_name, class: "form-input" %>
-<%= f.text_field :first_name %>
-
-<%= f.label :last_name, class: "form-input" %>
-<%= f.text_field :last_name %>
-
-<%= f.label :bio, class: "form-input" %>
-<%= f.text_area :bio %>
-
-<%= f.submit "Save Author" %>
-
-<% end %>
+<div class="content_container">
+  <div class="form_container">
+    <h1>Author</h1>
+    <%= form_for @author do |f| %>
+      <div class="form_input">
+        <%= f.label :first_name, class: "form-input" %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="form_input">
+        <%= f.label :last_name, class: "form-input" %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="form_input">
+        <%= f.label :bio, class: "form-input" %>
+        <%= f.text_area :bio %>
+      </div>
+      <div class="button">
+        <%= f.submit "Save Author" %>
+      </div>
+    <% end %>
+  </div>
+</div>
