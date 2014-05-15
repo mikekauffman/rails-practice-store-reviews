@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'shopping for products' do
   scenario 'user can see a product on the homepage' do
-    visit '/products'
+    visit '/'
 
     expect(page).to have_content "Making Bricks With 3D-Printers"
     expect(page).to have_content "(Jan 1, 2014)"
