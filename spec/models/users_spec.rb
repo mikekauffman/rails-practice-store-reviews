@@ -6,7 +6,7 @@ describe User do
       email: 'admin@example.com',
       password: 'password',
       password_confirmation: 'password',
-      is_admin: true
+      admin: true
     )
     admin.save!
     expect(User.last).to eq admin
@@ -14,10 +14,10 @@ describe User do
       email: 'user@example.com',
       password: 'password',
       password_confirmation: 'password',
-      is_admin: false
+      admin: false
     )
     user.save!
-    expect(admin.is_admin?).to eq true
-    expect(user.is_admin?).to eq false
+    expect(admin.admin?).to eq true
+    expect(user.admin?).to eq false
   end
 end

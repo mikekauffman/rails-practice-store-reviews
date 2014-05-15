@@ -6,7 +6,7 @@ feature 'Admin users' do
       email: 'admin@example.com',
       password: 'password',
       password_confirmation: 'password',
-      is_admin: true
+      admin: true
     )
 
     visit '/login'

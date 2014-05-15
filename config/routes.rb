@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  root to: 'products#index'
 
   resources :products
 
@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new', as: :login
 
-  post  '/sessions', to: 'sessions#create', as: :new_session
+  post '/sessions', to: 'sessions#create', as: :new_session
 
 end
