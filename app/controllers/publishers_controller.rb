@@ -5,7 +5,11 @@ class PublishersController < ApplicationController
   end
 
   def new
-    @publisher = Publisher.new
+    if session[:id].present? && User.find(session[:id]).admin
+      @publisher = Publisher.new
+    else
+      redirect_to root_path, notice: "Access Denied"
+    end
   end
 
   def create
