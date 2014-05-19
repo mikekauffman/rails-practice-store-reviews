@@ -1,7 +1,7 @@
 class PublishersController < ApplicationController
 
   def index
-    
+
   end
 
   def new
@@ -10,11 +10,14 @@ class PublishersController < ApplicationController
 
   def create
     @publisher = Publisher.new(publisher_params)
-
-    if @publisher.save
-      redirect_to new_publisher_path, notice: "Publisher #{@publisher.name} successfully added"
+    if @publisher.valid?
+      if @publisher.save
+        redirect_to new_publisher_path, notice: "Publisher #{@publisher.name} successfully added"
+      else
+        render new_publisher_path, notice: "Something went wrong."
+      end
     else
-      render new_publisher_path, notice: "Something went wrong."
+      redirect_to new_publisher_path, notice: "Name and City are required fields"
     end
   end
 
