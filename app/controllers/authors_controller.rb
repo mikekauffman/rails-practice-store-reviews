@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
-      redirect_to author_path(@author), notice: "Author successfully added"
+      redirect_to new_author_path, notice: "Author #{@author.first_name} #{@author.last_name} successfully added"
     else
       render new_author_path, notice: "Something went wrong."
     end
