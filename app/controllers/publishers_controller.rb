@@ -12,7 +12,7 @@ class PublishersController < ApplicationController
     @publisher = Publisher.new(publisher_params)
 
     if @publisher.save
-      redirect_to publisher_path(@publisher), notice: "Publisher successfully added"
+      redirect_to new_publisher_path, notice: "Publisher #{@publisher.name} successfully added"
     else
       render new_publisher_path, notice: "Something went wrong."
     end
