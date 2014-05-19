@@ -1,8 +1,17 @@
 <%= form_tag new_session_path do %>
-  <%= text_field :session, :email %>
-  <%= password_field :session, :password %>
-  <%= submit_tag "Login" %>
+  <div class="form_container">
+    <div class="form_input">
+      <%= label_tag :email %>
+      <%= text_field :session, :email %>
+    </div>
+
+    <div class="form_input">
+      <%= label_tag :pasword %>
+      <%= password_field :session, :password %>
+    </div>
+
+    <div class="button">
+      <%= submit_tag "Login" %>
+    </div>
 <% end %>
-
-<p class="errors"><%= flash[:alert] %></p>
-
+</div>
