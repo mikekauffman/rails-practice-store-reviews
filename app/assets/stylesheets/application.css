@@ -18,6 +18,10 @@ html, body {
     font-family: Lato, sans-serif;
 }
 
+nav {
+    text-align: right;
+}
+
 .content_container {
     width: 100%;
 }
