@@ -23,7 +23,7 @@ feature 'Admin users' do
     fill_in 'session[password]', with: 'password'
     click_on 'Login'
 
-    expect(page).to have_content 'Welcome admin@example.com'
+    expect(page).to have_content 'Welcome, admin@example.com'
   end
 
   scenario 'Non Admin cannot login' do
@@ -48,7 +48,7 @@ feature 'Admin users' do
     fill_in 'session[password]', with: 'password'
     click_on 'Login'
 
-    expect(page).to have_content 'Welcome admin@example.com'
+    expect(page).to have_content 'Welcome, admin@example.com'
 
     within('nav') do
       expect(page).to have_link 'Add Publisher'
@@ -65,7 +65,7 @@ feature 'Admin users' do
     fill_in 'session[password]', with: 'password'
     click_on 'Login'
 
-    expect(page).to have_content 'Welcome not-admin@example.com'
+    expect(page).to have_content 'Welcome, not-admin@example.com'
 
     within('nav') do
       expect(page).to_not have_link 'Add Publisher'
