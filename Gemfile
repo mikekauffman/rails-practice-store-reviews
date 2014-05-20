@@ -18,6 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
   gem 'launchy', '~> 2.4.2'
+  gem 'dotenv-rails', '~> 0.11.1'
 end
 
 group :production do
