@@ -17,4 +17,8 @@ describe UserMailer do
   it 'has the proper subject' do
     expect(welcome_message.subject).to eq 'Thank you for signing up!'
   end
+
+  it 'has a welcome message in the body' do
+    expect(welcome_message.body).to have_content 'Thanks for joining and have a great day!'
+  end
 end

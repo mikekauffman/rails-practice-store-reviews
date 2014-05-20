@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     if user.save
       session[:id] = user.id
+      UserMailer.welcome_email(user).deliver
       redirect_to root_path, notice: "Welcome, #{user.email}"
     else
       @user = user
