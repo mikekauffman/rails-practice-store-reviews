@@ -1,6 +1,29 @@
 class UsersController < ApplicationController
 
   def index
-   @users = User.all
+    @users = User.all
   end
-end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    user = User.create(allowed_parameters)
+
+    if user.save
+      session[:id] = user.id
+      redirect_to root_path, notice: "Welcome, #{user.email}"
+    else
+      @user = user
+      redirect_to :new
+    end
+
+  end
+
+  private
+
+  def allowed_parameters
+    params.require(:user).permit(:email, :password)
+  end
+  end

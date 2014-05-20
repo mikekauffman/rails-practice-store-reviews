@@ -42,7 +42,7 @@ feature 'Admin users' do
     visit '/'
     expect(page).to_not have_link 'Add Publisher'
 
-    visit '/login'
+    click_link 'Login'
 
     fill_in 'session[email]', with: 'admin@example.com'
     fill_in 'session[password]', with: 'password'
@@ -59,7 +59,7 @@ feature 'Admin users' do
     visit '/'
     expect(page).to_not have_link 'Add Publisher'
 
-    visit '/login'
+    click_link 'Login'
 
     fill_in 'session[email]', with: 'not-admin@example.com'
     fill_in 'session[password]', with: 'password'

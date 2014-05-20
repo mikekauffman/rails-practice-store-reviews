@@ -1,0 +1,18 @@
+<div class="form_container">
+  <%= form_for @user do |f| %>
+
+    <div class="form_input">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="form_input">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="button">
+      <%= f.submit "Register" %>
+    </div>
+  <% end %>
+</div>
