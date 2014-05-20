@@ -8,10 +8,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <% if is_admin? %>
 <nav><%= link_to 'Add Publisher', new_publisher_path %></nav>
 <% else %>
 <nav></nav>
+<% end %>
+<% if session[:id].present? %>
+  <p style="float: right;">Welcome, <%= User.find(session[:id]).email %></p>
 <% end %>
 
 <div class="flash_notice">
