@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome #{user.email}"
       redirect_to root_path
     else
-      redirect_to login_path, notice: 'invalid username/password'
+      redirect_to login_path, alert: 'invalid email/password'
     end
   end
 

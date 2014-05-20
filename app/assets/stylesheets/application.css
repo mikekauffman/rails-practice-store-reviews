@@ -60,11 +60,10 @@ nav {
 
 .errors {
     color: red;
-    margin-left: 120px;
+    margin-left: 380px;
 }
 
 ul.errors {
-    padding-left: 0;
     padding-bottom: 1em;
 }
 
@@ -76,7 +75,4 @@ ul.errors {
 }
 
 .flash_notice {
-    font-size: 20px;
-    padding: 15px;
-    color: red;
 }

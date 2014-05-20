@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "Welcome, #{user.email}"
     else
       @user = user
-      redirect_to :new
+      redirect_to new_user_path, alert: "invalid email/password"
     end
 
   end

@@ -34,7 +34,7 @@ feature 'Admin users' do
     fill_in 'session[password]', with: 'password'
     click_on 'Login'
 
-    expect(page).to have_content 'invalid username/password'
+    expect(page).to have_content 'invalid email/password'
 
   end
 
