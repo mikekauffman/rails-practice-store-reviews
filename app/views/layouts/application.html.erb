@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if session[:id].present? && User.find(session[:id]).admin %>
+<% if is_admin? %>
 <nav><%= link_to 'Add Publisher', new_publisher_path %></nav>
 <% else %>
 <nav></nav>
