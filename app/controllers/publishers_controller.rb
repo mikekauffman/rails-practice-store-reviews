@@ -5,7 +5,7 @@ class PublishersController < ApplicationController
   end
 
   def new
-    if session[:id].present? && User.find(session[:id]).admin
+    if is_admin?
       @publisher = Publisher.new
     else
       redirect_to root_path, notice: "Access Denied"
