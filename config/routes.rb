@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   post '/sessions', to: 'sessions#create', as: :new_session
 
+  delete '/logout', to: 'sessions#destroy'
 end

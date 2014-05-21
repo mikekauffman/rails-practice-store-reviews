@@ -42,5 +42,10 @@ feature 'User Registration' do
     expect(page).to have_content 'Welcome, user@example.com'
     visit '/'
     expect(page).to have_content 'Welcome, user@example.com'
+
+    click_link 'Logout'
+
+    expect(current_url).to eq 'http://www.example.com/'
+    expect(page).to have_no_content 'Welcome, user@example.com'
   end
 end
