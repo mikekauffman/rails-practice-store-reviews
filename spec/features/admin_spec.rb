@@ -4,14 +4,14 @@ feature 'Admin users' do
   before do
     User.create!(
       email: 'admin@example.com',
-      password: 'password',
-      password_confirmation: 'password',
+      password: 'password1',
+      password_confirmation: 'password1',
       admin: true
     )
     User.create!(
       email: 'not-admin@example.com',
-      password: 'password',
-      password_confirmation: 'password',
+      password: 'password1',
+      password_confirmation: 'password1',
       admin: false
     )
   end
@@ -20,7 +20,7 @@ feature 'Admin users' do
     visit '/login'
 
     fill_in 'session[email]', with: 'admin@example.com'
-    fill_in 'session[password]', with: 'password'
+    fill_in 'session[password]', with: 'password1'
     click_on 'Login'
 
     expect(page).to have_content 'Welcome, admin@example.com'
@@ -31,7 +31,7 @@ feature 'Admin users' do
     visit '/login'
 
     fill_in 'session[email]', with: 'test@example.com'
-    fill_in 'session[password]', with: 'password'
+    fill_in 'session[password]', with: 'password1'
     click_on 'Login'
 
     expect(page).to have_content 'invalid email/password'
@@ -45,7 +45,7 @@ feature 'Admin users' do
     click_link 'Login'
 
     fill_in 'session[email]', with: 'admin@example.com'
-    fill_in 'session[password]', with: 'password'
+    fill_in 'session[password]', with: 'password1'
     click_on 'Login'
 
     expect(page).to have_content 'Welcome, admin@example.com'
@@ -62,7 +62,7 @@ feature 'Admin users' do
     click_link 'Login'
 
     fill_in 'session[email]', with: 'not-admin@example.com'
-    fill_in 'session[password]', with: 'password'
+    fill_in 'session[password]', with: 'password1'
     click_on 'Login'
 
     expect(page).to have_content 'Welcome, not-admin@example.com'

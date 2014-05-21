@@ -4,16 +4,16 @@ describe User do
   it 'Creates admin and non-admin users' do
     admin = User.new(
       email: 'admin@example.com',
-      password: 'password',
-      password_confirmation: 'password',
+      password: 'password1',
+      password_confirmation: 'password1',
       admin: true
     )
     admin.save!
     expect(User.last).to eq admin
     user = User.new(
       email: 'user@example.com',
-      password: 'password',
-      password_confirmation: 'password',
+      password: 'password1',
+      password_confirmation: 'password1',
       admin: false
     )
     user.save!
@@ -24,7 +24,7 @@ describe User do
   it 'Only accepts valid email addresses' do
     user = User.new(
       email: 'user1@example,com',
-      password: 'password'
+      password: 'password1'
     )
     expect(user.valid?).to eq false
   end
@@ -32,8 +32,34 @@ describe User do
   it 'Email cannot be blank' do
     user = User.new(
       email: '',
-      password: 'password'
+      password: 'password1'
+    )
+    expect(user.valid?).to eq false
+  end
+
+  it 'Only accepts valid password' do
+    user = User.new(
+        email: 'user1@example.com',
+        password: 'password'
+    )
+    expect(user.valid?).to eq false
+  end
+
+  it 'Accepts password that starts with a number' do
+    user = User.new(
+        email: 'user1@example.com',
+        password: '1password',
+    )
+    expect(user.valid?).to eq true
+  end
+
+  it 'Only accepts passwords with more than 8 characters' do
+    user = User.new(
+        email: 'user1@example.com',
+        password: '1pass',
     )
     expect(user.valid?).to eq false
   end
 end
+
+

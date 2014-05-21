@@ -9,7 +9,7 @@ feature 'User Registration' do
     click_link 'Register'
 
     fill_in 'user[email]', with: 'user@example.com'
-    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password]', with: 'password1'
     click_on 'Register'
 
     expect(page).to have_content 'Welcome, user@example.com'
@@ -23,7 +23,7 @@ feature 'User Registration' do
     click_link 'Register'
 
     fill_in 'user[email]', with: 'invaliduser@example,com'
-    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password]', with: 'password1'
     click_on 'Register'
 
     expect(current_path).to eq '/users/new'
@@ -36,7 +36,7 @@ feature 'User Registration' do
     click_link 'Register'
 
     fill_in 'user[email]', with: 'user@example.com'
-    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password]', with: 'password1'
     click_on 'Register'
 
     expect(page).to have_content 'Welcome, user@example.com'
@@ -48,4 +48,6 @@ feature 'User Registration' do
     expect(current_url).to eq 'http://www.example.com/'
     expect(page).to have_no_content 'Welcome, user@example.com'
   end
+
+
 end

@@ -4,21 +4,21 @@ feature 'adding a publisher' do
   before do
     User.create!(
       email: 'admin@example.com',
-      password: 'password',
-      password_confirmation: 'password',
+      password: 'password1',
+      password_confirmation: 'password1',
       admin: true
     )
     User.create!(
       email: 'not-admin@example.com',
-      password: 'password',
-      password_confirmation: 'password',
+      password: 'password1',
+      password_confirmation: 'password1',
       admin: false
     )
 
     visit '/login'
 
     fill_in 'session[email]', with: 'admin@example.com'
-    fill_in 'session[password]', with: 'password'
+    fill_in 'session[password]', with: 'password1'
     click_on 'Login'
   end
   scenario 'user can add a new publisher' do
@@ -52,7 +52,7 @@ feature 'adding a publisher' do
     visit '/login'
 
     fill_in 'session[email]', with: 'not-admin@example.com'
-    fill_in 'session[password]', with: 'password'
+    fill_in 'session[password]', with: 'password1'
     click_on 'Login'
 
     visit '/publishers/new'
