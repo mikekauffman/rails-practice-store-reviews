@@ -25,6 +25,21 @@
     }
   }
 
+  .form_select {
+    padding-bottom: 1em;
+    font-size: 1.2em;
+    label {
+      display: inline-block;
+      width: 160px;
+      vertical-align: top;
+    }
+    select {
+      font-size: 1.2em;
+      border: 2px solid black;
+      padding: 3px;
+    }
+  }
+
   .button {
     input[type=submit] {
       font-size: 1em;
