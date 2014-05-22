@@ -25,10 +25,11 @@ feature 'User Registration' do
 
     fill_in 'user[email]', with: 'invaliduser@example,com'
     fill_in 'user[password]', with: 'password1'
+    fill_in 'user[password_confirmation]', with: 'password1'
     click_on 'Register'
 
-    expect(current_path).to eq '/users/new'
-    expect(page).to have_content 'invalid email/password'
+    expect(current_path).to eq '/users'
+    expect(page).to have_content 'Email is invalid'
   end
 
   scenario 'User email shows to indicate logged in status after navigating away from login page' do

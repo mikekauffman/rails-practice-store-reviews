@@ -10,12 +10,13 @@
 <body>
 
 <% if is_admin? %>
-<nav><%= link_to 'Add Publisher', new_publisher_path %> </nav>
+  <nav><%= link_to 'Add Publisher', new_publisher_path %> </nav>
 <% else %>
-<nav></nav>
+  <nav></nav>
 <% end %>
 <% if session[:id].present? %>
-  <p style="float: right;">Welcome, <%= User.find(session[:id]).email %> | <%= link_to 'Logout', logout_path, method: :delete %></p>
+  <p style="float: right;">Welcome, <%= User.find(session[:id]).email %>
+    | <%= link_to 'Logout', logout_path, method: :delete %></p>
 <% end %>
 
 <div class="flash_notice">
@@ -27,5 +28,6 @@
 </div>
 
 <%= yield %>
+
 </body>
 </html>
