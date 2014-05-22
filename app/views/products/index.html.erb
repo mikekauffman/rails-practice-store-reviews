@@ -1,8 +1,8 @@
 <div class="content_container">
-
-  <%= link_to "Login", login_path %> |
-  <%= link_to "Register", new_user_path %>
-
+  <div class="login_register_links">
+    <%= link_to "Login", login_path %> |
+    <%= link_to "Register", new_user_path %>
+  </div>
   <p class="flash_notice"><%= flash[:alert] %></p>
 
   <% @products.each do |product| %>

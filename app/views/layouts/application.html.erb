@@ -9,14 +9,19 @@
 </head>
 <body>
 
-<% if is_admin? %>
-<nav><%= link_to 'Add Publisher', new_publisher_path %> </nav>
-<% else %>
-<nav></nav>
-<% end %>
+<header><h1>g2-store</h1></header>
+
+<nav>
 <% if session[:id].present? %>
-  <p style="float: right;">Welcome, <%= User.find(session[:id]).email %> | <%= link_to 'Logout', logout_path, method: :delete %></p>
+  <li>Welcome, <%= User.find(session[:id]).email %></li> |
+  <li><%= link_to 'Logout', logout_path, method: :delete %></li>
 <% end %>
+  <% if is_admin? %>
+    <br>
+    <li><%= link_to 'Add Publisher', new_publisher_path %> </li>
+  <% else %>
+  <% end %>
+</nav>
 
 <div class="flash_notice">
   <%= flash[:notice] %>

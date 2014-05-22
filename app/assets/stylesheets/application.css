@@ -16,17 +16,47 @@
 
 html, body {
     font-family: Lato, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #FBFCEE;
 }
 
 nav {
     text-align: right;
+    padding: 1em;
+    height: 20px;
+    background-color: #96C56F;
 }
 
+nav li {
+    list-style-type: none;
+    display: inline;
+}
+
+header {
+    background-color: #E55B0A;
+    height: 150px;
+    margin: 0;
+    padding: 0px;
+}
+
+header h1 {
+    margin: 0;
+    color: #616D37;
+    font-size: 80px;
+    padding-left: 20px;
+    padding-top: 25px;
+}
+
+body a {
+    color: #E55B0A;
+}
 .content_container {
     width: 100%;
 }
 
 .product_container {
+    margin-top: 30px;
     margin-left: 10%;
     margin-bottom: 2em;
 }
@@ -74,6 +104,7 @@ nav {
 }
 
 .errors {
+    padding-top: 10px;
     color: red;
     margin-left: 380px;
 }
@@ -94,4 +125,9 @@ ul.errors {
 }
 
 .flash_notice {
+}
+
+.login_register_links {
+    padding: 1em;
+    font-size: 1.2em;
 }
