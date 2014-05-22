@@ -63,13 +63,22 @@ describe User do
     expect(user.valid?).to eq false
   end
 
-  it 'Requires a password confirmation' do
+  it 'Creates user with password confirmation' do
     user = User.new(
         email: 'user1@example.com',
         password: '1password',
         password_confirmation: '1password',
     )
     expect(user.valid?).to eq true
+  end
+
+  it 'Requires a password confirmation' do
+    user = User.new(
+        email: 'user1@example.com',
+        password: '1password',
+        password_confirmation: '',
+    )
+    expect(user.valid?).to eq false
   end
 end
 
