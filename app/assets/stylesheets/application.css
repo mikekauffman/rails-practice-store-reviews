@@ -67,7 +67,11 @@ ul.errors {
     padding-bottom: 1em;
 }
 
-.errors li {
+.product_errors {
+    padding-bottom: 1em;
+}
+
+.product_errors li {
     list-style: none;
     color: red;
     margin-left: 0;
