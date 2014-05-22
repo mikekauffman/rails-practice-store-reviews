@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email])
-
-    if user.present? && decrypted_password(user.password_digest) == params[:session][:password]
+    if user.present? && user.authenticate(params[:session][:password])
       session[:id] = user.id
       redirect_to root_path
     else

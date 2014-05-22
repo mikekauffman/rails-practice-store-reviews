@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
   validates :password,
             format: { with: /\A^(?=.*\d)(?=.*[a-zA-Z]).{8,12}$\z/ }
+
+
 end
