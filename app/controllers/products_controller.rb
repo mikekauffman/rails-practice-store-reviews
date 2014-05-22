@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path, notice: "Product successfully added"
     else
-      render :new, alert: "Something went wrong"
+      render :new
     end
   end
 
