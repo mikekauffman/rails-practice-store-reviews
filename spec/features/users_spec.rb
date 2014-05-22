@@ -10,6 +10,7 @@ feature 'User Registration' do
 
     fill_in 'user[email]', with: 'user@example.com'
     fill_in 'user[password]', with: 'password1'
+    fill_in 'user[password_confirmation]', with: 'password1'
     click_on 'Register'
 
     expect(page).to have_content 'Welcome, user@example.com'
@@ -37,6 +38,7 @@ feature 'User Registration' do
 
     fill_in 'user[email]', with: 'user@example.com'
     fill_in 'user[password]', with: 'password1'
+    fill_in 'user[password_confirmation]', with: 'password1'
     click_on 'Register'
 
     expect(page).to have_content 'Welcome, user@example.com'
@@ -47,6 +49,26 @@ feature 'User Registration' do
 
     expect(current_url).to eq 'http://www.example.com/'
     expect(page).to have_no_content 'Welcome, user@example.com'
+  end
+
+  scenario 'Registered user can login without password confirmation' do
+    visit '/'
+
+    click_link 'Register'
+
+    fill_in 'user[email]', with: 'user@example.com'
+    fill_in 'user[password]', with: 'password1'
+    fill_in 'user[password_confirmation]', with: 'password1'
+    click_on 'Register'
+
+    expect(page).to have_content 'Welcome, user@example.com'
+
+    click_link 'Logout'
+    click_link 'Login'
+    fill_in 'session[email]', with: 'user@example.com'
+    fill_in 'session[password]', with: 'password1'
+    click_button 'Login'
+    expect(page).to have_content 'Welcome, user@example.com'
   end
 
 
