@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(allowed_parameters)
+    user = User.new(allowed_parameters)
 
     if user.save
       session[:id] = user.id
@@ -25,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def allowed_parameters
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
   end
