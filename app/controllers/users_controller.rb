@@ -10,16 +10,14 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(allowed_parameters)
-
+    @user = user
     if user.save
       session[:id] = user.id
       UserMailer.welcome_email(user).deliver
       redirect_to root_path
     else
-      @user = user
-      redirect_to new_user_path, alert: "invalid email/password"
+      render :new
     end
-
   end
 
   private
@@ -27,4 +25,5 @@ class UsersController < ApplicationController
   def allowed_parameters
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
-  end
+
+end
