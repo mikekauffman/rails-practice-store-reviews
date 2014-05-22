@@ -27,19 +27,34 @@ nav {
 }
 
 .product_container {
-    margin-left: 20%;
+    margin-left: 10%;
     margin-bottom: 2em;
 }
 
-.product_picture {
+.product_container a:first-child {
+    font-weight: bold;
+}
+
+.product_picture_small {
     display: inline-block;
     margin: .5em;
     width: 200px;
     text-align: right;
 }
 
-.product_picture img {
+.product_picture_small img {
     height: 160px;
+}
+
+.product_picture_large {
+    display: inline-block;
+    margin: .5em;
+    width: 400px;
+    text-align: right;
+}
+
+.product_picture_large img {
+    height: 360px;
 }
 
 .product_description {

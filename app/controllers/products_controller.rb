@@ -16,6 +16,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   private
   def allowed_parameters
     params.require(:product).permit(:name, :hardcover_price,
