@@ -26,6 +26,17 @@
         <%= f.label :published_date, 'Published on' %>
         <%= f.text_field :published_date %>
       </div>
+      <div class="form_select">
+        <%= f.label :author_id, 'Author' %>
+        <%= f.select :author_id,
+                     Author.all.map { |author| [ "#{author.first_name} #{author.last_name}" ] },
+                     :include_blank => 'Select an author' %>
+      </div>
+      <div class="form_select">
+        <%= f.label :publisher_id, 'Publisher' %>
+        <%= f.select :publisher_id, Publisher.all.map { |publisher| [ publisher.name ] },
+                      :include_blank => 'Select a publisher' %>
+      </div>
       <div class="button">
         <%= f.submit 'Save Product' %>
       </div>
