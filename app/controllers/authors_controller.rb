@@ -1,7 +1,11 @@
 class AuthorsController < ApplicationController
 
   def new
-    @author = Author.new
+    if is_admin?
+      @author = Author.new
+    else
+      redirect_to root_path, notice: "Access Denied"
+    end
   end
 
   def create
@@ -17,11 +21,6 @@ class AuthorsController < ApplicationController
   def show
     @author = Author.find(params[:id])
   end
-
-
-
-
-
 
 
   private
