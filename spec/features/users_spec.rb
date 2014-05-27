@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 feature 'User Registration' do
+  before do
+    visit '/'
+    click_link 'Register'
+
+    fill_in 'user[email]', with: 'user@example.com'
+    fill_in 'user[password]', with: 'password1'
+    fill_in 'user[password_confirmation]', with: 'password1'
+    click_on 'Register'
+  end
+
   scenario 'User can create an account and a welcome email is sent' do
     visit '/'
 
@@ -8,12 +18,12 @@ feature 'User Registration' do
 
     click_link 'Register'
 
-    fill_in 'user[email]', with: 'user@example.com'
+    fill_in 'user[email]', with: 'actionmailer@example.com'
     fill_in 'user[password]', with: 'password1'
     fill_in 'user[password_confirmation]', with: 'password1'
     click_on 'Register'
 
-    expect(page).to have_content 'Welcome, user@example.com'
+    expect(page).to have_content 'Welcome, actionmailer@example.com'
     expect(page).to_not have_link 'Add Publisher'
     expect(ActionMailer::Base.deliveries.length).to eq (emails_sent + 1)
   end
@@ -23,7 +33,7 @@ feature 'User Registration' do
 
     click_link 'Register'
 
-    fill_in 'user[email]', with: 'invaliduser@example,com'
+    fill_in 'user[email]', with: 'invaliduserexample,com'
     fill_in 'user[password]', with: 'password1'
     fill_in 'user[password_confirmation]', with: 'password1'
     click_on 'Register'
@@ -34,16 +44,6 @@ feature 'User Registration' do
 
   scenario 'User email shows to indicate logged in status after navigating away from login page' do
     visit '/'
-
-    click_link 'Register'
-
-    fill_in 'user[email]', with: 'user@example.com'
-    fill_in 'user[password]', with: 'password1'
-    fill_in 'user[password_confirmation]', with: 'password1'
-    click_on 'Register'
-
-    expect(page).to have_content 'Welcome, user@example.com'
-    visit '/'
     expect(page).to have_content 'Welcome, user@example.com'
 
     click_link 'Logout'
@@ -53,17 +53,6 @@ feature 'User Registration' do
   end
 
   scenario 'Registered user can login without password confirmation' do
-    visit '/'
-
-    click_link 'Register'
-
-    fill_in 'user[email]', with: 'user@example.com'
-    fill_in 'user[password]', with: 'password1'
-    fill_in 'user[password_confirmation]', with: 'password1'
-    click_on 'Register'
-
-    expect(page).to have_content 'Welcome, user@example.com'
-
     click_link 'Logout'
     click_link 'Login'
     fill_in 'session[email]', with: 'user@example.com'
@@ -71,6 +60,5 @@ feature 'User Registration' do
     click_button 'Login'
     expect(page).to have_content 'Welcome, user@example.com'
   end
-
 
 end
