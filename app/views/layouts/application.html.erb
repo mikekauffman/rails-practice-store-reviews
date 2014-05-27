@@ -12,15 +12,19 @@
 <header><h1>g2-store</h1></header>
 
 <nav>
-<% if session[:id].present? %>
-  <li>Welcome, <%= User.find(session[:id]).email %></li> |
-  <li><%= link_to 'Logout', logout_path, method: :delete %></li>
-<% end %>
-  <% if is_admin? %>
-    <br>
-    <li><%= link_to 'Add Publisher', new_publisher_path %> </li>
-  <% else %>
-  <% end %>
+  <ul id="navigation_links">
+    <% if is_admin? %>
+      <li><%= link_to 'Add Publisher', new_publisher_path %> </li>
+    <% else %>
+    <% end %>
+  </ul>
+  <ul id="authentication_links">
+    <% if session[:id].present? %>
+      <li>Welcome, <%= User.find(session[:id]).email %></li>
+      |
+      <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+    <% end %>
+  </ul>
 </nav>
 
 <div class="flash_notice">

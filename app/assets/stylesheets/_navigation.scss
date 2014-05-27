@@ -1,0 +1,46 @@
+header {
+  background-color: #E55B0A;
+  height: 150px;
+  margin: 0;
+  padding: 0px;
+}
+
+header h1 {
+  margin: 0;
+  color: #616D37;
+  font-size: 80px;
+  padding-left: 20px;
+  padding-top: 25px;
+}
+
+nav {
+  text-align: right;
+  padding: .3em;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #96C56F;
+  overflow: hidden;
+}
+
+nav ul {
+  padding-left: 0
+}
+
+nav li {
+  list-style-type: none;
+  display: inline;
+}
+
+#navigation_links {
+  float: left;
+}
+
+#authentication_links {
+  float: right;
+}
+
+.login_register_links {
+  padding: 1em;
+  font-size: 1.2em;
+}
+

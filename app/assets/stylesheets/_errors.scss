@@ -1,0 +1,23 @@
+.errors {
+  padding-top: 10px;
+  color: red;
+  margin-left: 11.5%;
+}
+
+ul.errors {
+  padding-bottom: 1em;
+}
+
+.product_errors {
+  padding-bottom: 1em;
+}
+
+.product_errors li {
+  list-style: none;
+  color: red;
+  margin-left: 0;
+  padding: .2em 0;
+}
+
+.flash_notice {
+}
