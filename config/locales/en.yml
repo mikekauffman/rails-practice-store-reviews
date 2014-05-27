@@ -20,13 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  activerecord:
-    attributes:
-      user:
-        password_confirmation: "Passwords"
-    errors:
-      models:
-        user:
-          attributes:
-            password_confirmation:
-              confirmation: "do not match"
+  hello: "Hello world"
+#en:
+#  activerecord:
+#    attributes:
+#      user:
+#        email: "E-mail address"
+#    errors:
+#      models:
+#        user:
+#          attributes:
+#            email:
+#              blank: "is required"
