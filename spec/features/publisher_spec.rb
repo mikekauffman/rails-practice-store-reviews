@@ -19,7 +19,7 @@ feature 'adding a publisher' do
 
     fill_in 'session[email]', with: 'admin@example.com'
     fill_in 'session[password]', with: 'password1'
-    click_on 'Login'
+    click_button 'Login'
   end
   scenario 'user can add a new publisher' do
     visit '/publishers/new'
@@ -53,7 +53,7 @@ feature 'adding a publisher' do
 
     fill_in 'session[email]', with: 'not-admin@example.com'
     fill_in 'session[password]', with: 'password1'
-    click_on 'Login'
+    click_button 'Login'
 
     visit '/publishers/new'
 

@@ -21,7 +21,7 @@ feature 'Admin users' do
 
     fill_in 'session[email]', with: 'admin@example.com'
     fill_in 'session[password]', with: 'password1'
-    click_on 'Login'
+    click_button 'Login'
 
     expect(page).to have_content 'Welcome, admin@example.com'
   end
@@ -32,7 +32,7 @@ feature 'Admin users' do
 
     fill_in 'session[email]', with: 'test@example.com'
     fill_in 'session[password]', with: 'password1'
-    click_on 'Login'
+    click_button 'Login'
 
     expect(page).to have_content 'invalid email/password'
 
@@ -46,7 +46,7 @@ feature 'Admin users' do
 
     fill_in 'session[email]', with: 'admin@example.com'
     fill_in 'session[password]', with: 'password1'
-    click_on 'Login'
+    click_button 'Login'
 
     expect(page).to have_content 'Welcome, admin@example.com'
 
@@ -63,7 +63,7 @@ feature 'Admin users' do
 
     fill_in 'session[email]', with: 'not-admin@example.com'
     fill_in 'session[password]', with: 'password1'
-    click_on 'Login'
+    click_button 'Login'
 
     expect(page).to have_content 'Welcome, not-admin@example.com'
 
