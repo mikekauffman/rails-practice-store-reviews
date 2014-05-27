@@ -79,6 +79,7 @@ describe User do
         password_confirmation: '',
     )
     expect(user.valid?).to eq false
+    expect(user.errors.full_messages).to eq ["Passwords do not match"]
   end
 end
 
