@@ -9,5 +9,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :is_admin?
+  def is_logged_in?
+    if session[:id].present? && User.find(session[:id])
+      true
+    end
+  end
+
+  helper_method :is_admin?, :is_logged_in?
 end

@@ -15,11 +15,12 @@
   <ul id="navigation_links">
     <% if is_admin? %>
       <li><%= link_to 'Add Publisher', new_publisher_path %> </li>
+      <li><%= link_to 'Add Product', new_product_path %> </li>
     <% else %>
     <% end %>
   </ul>
   <ul id="authentication_links">
-    <% if session[:id].present? %>
+    <% if is_logged_in? %>
       <li>Welcome, <%= User.find(session[:id]).email %></li>
       |
       <li><%= link_to 'Logout', logout_path, method: :delete %></li>

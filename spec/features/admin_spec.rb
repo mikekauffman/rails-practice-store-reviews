@@ -38,9 +38,10 @@ feature 'Admin users' do
 
   end
 
-  scenario 'Admins see a link to add a publisher' do
+  scenario 'Admins see a link to add a publisher and product' do
     visit '/'
     expect(page).to_not have_link 'Add Publisher'
+    expect(page).to_not have_link 'Add Product'
 
     click_link 'Login'
 
@@ -52,12 +53,14 @@ feature 'Admin users' do
 
     within('nav') do
       expect(page).to have_link 'Add Publisher'
+      expect(page).to have_link 'Add Product'
     end
   end
 
-  scenario 'Non admins cannot see a link to add a publisher' do
+  scenario 'Non admins cannot see a link to add a publisher or product' do
     visit '/'
     expect(page).to_not have_link 'Add Publisher'
+    expect(page).to_not have_link 'Add Product'
 
     click_link 'Login'
 
@@ -69,6 +72,7 @@ feature 'Admin users' do
 
     within('nav') do
       expect(page).to_not have_link 'Add Publisher'
+      expect(page).to_not have_link 'Add Product'
     end
   end
 end
