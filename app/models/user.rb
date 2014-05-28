@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   # caused a huge hack using I18n strings
   has_secure_password(validations: false)
 
-  validates_confirmation_of :password, if: ->{ password.present? }, message: "do not match"
+  validates_confirmation_of :password, if: ->{ password.present? }, message: "Passwords do not match"
+
+  validate do |record|
+    record.errors.add(:password, :blank) unless record.password_digest.present?
+  end
 
   validates :email,
             presence: true,
