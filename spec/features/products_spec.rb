@@ -1,11 +1,6 @@
 require 'spec_helper'
 
 feature 'shopping for products' do
-  before 'authors and publishers are created' do
-    @author = Author.create!(first_name: 'Arthur', last_name: 'Radcliffe')
-    @publisher = Publisher.create!(name: 'Arthur Books', city: 'Denver')
-  end
-
   def log_in(user)
     visit '/'
     click_link 'Login'
@@ -15,6 +10,8 @@ feature 'shopping for products' do
   end
 
   scenario 'Users can view existing products' do
+    author = Author.create!(first_name: 'Arthur', last_name: 'Radcliffe')
+    publisher = Publisher.create!(name: 'Arthur Books', city: 'Denver')
     product = Product.create!(
       name: 'Test Book',
       hardcover_price: 10,
@@ -22,8 +19,8 @@ feature 'shopping for products' do
       description: 'This is a description',
       image_url: 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg',
       published_date: '1/1/2010',
-      author_id: @author.id,
-      publisher_id: @publisher.id
+      author_id: author.id,
+      publisher_id: publisher.id
     )
 
     visit '/'
@@ -35,6 +32,8 @@ feature 'shopping for products' do
   end
 
   scenario 'Admins can create a product and view its show page' do
+    author = Author.create!(first_name: 'Arthur', last_name: 'Radcliffe')
+    publisher = Publisher.create!(name: 'Arthur Books', city: 'Denver')
     admin = User.create!(email: 'admin@example.com', password: 'password1', admin: true)
     log_in(admin)
 
@@ -94,6 +93,9 @@ feature 'shopping for products' do
   end
 
   scenario 'Non-admins cannot add products' do
+    visit '/'
+    expect(page).to_not have_link 'Add Product'
+
     visit '/products/new'
 
     expect(current_path).to eq '/'
