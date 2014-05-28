@@ -32,8 +32,11 @@ feature 'User can add an author' do
     expect(current_path).to eq '/authors/new'
   end
 
-  scenario 'non-admins cannot add new publishers' do
-    visit '/login'
+  scenario 'guests and non-admins cannot add new authors' do
+    visit '/authors/new'
+    expect(page).to have_content 'Access Denied'
+
+    click_on 'Login'
 
     fill_in 'session[email]', with: 'not-admin@example.com'
     fill_in 'session[password]', with: 'password1'
@@ -42,6 +45,5 @@ feature 'User can add an author' do
     visit '/authors/new'
 
     expect(page).to have_content 'Access Denied'
-    expect(current_path).to eq '/'
   end
 end
