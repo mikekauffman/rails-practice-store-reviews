@@ -37,6 +37,12 @@ describe User do
     expect(user.valid?).to eq false
   end
 
+  it 'requires email to be unique' do
+    user = User.create!(email: 'first_user@example.com', password: 'password1')
+    user2 = User.new(email: 'first_user@example.com', password: 'password2')
+    expect(user2.valid?).to eq false
+  end
+
   it 'Only accepts valid password' do
     user = User.new(
       email: 'user1@example.com',
