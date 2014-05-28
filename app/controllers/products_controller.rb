@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    if is_admin?
+      @product = Product.new
+    else
+      redirect_to root_path, notice: "Access Denied"
+    end
   end
 
   def create
