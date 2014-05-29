@@ -1,5 +1,6 @@
 <%= form_tag new_session_path do %>
   <div class="form_container">
+    <h2>Login</h2>
     <div class="form_input">
       <%= label_tag :email %>
       <%= text_field :session, :email %>
@@ -11,6 +12,7 @@
     </div>
 
     <div class="button">
+      <%= link_to 'Forgot password?', new_reset_password_path %>
       <%= submit_tag "Login" %>
     </div>
 <% end %>

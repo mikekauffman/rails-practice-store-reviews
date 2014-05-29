@@ -1,0 +1,14 @@
+<div class="form_container">
+  <h2>Forgot Password?</h2>
+  <p>Please enter your user email to receive a reset link.</p>
+  <%= form_tag '/reset_password', method: :post do %>
+    <div class="form_input">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+
+    <div class="button">
+      <%= submit_tag "Reset my password" %>
+    </div>
+  <% end %>
+</div>

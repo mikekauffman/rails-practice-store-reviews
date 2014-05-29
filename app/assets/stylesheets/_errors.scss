@@ -20,4 +20,14 @@ ul.errors {
 }
 
 .flash_notice {
+  color: green;
+  margin: 0 auto;
+  padding:1em;
+  p{
+    text-align:center;
+    border: 1px solid #96C56F;
+    background-color:rgba(144,238,144,.2);
+    padding:.7em;
+    border-radius:4px;
+  }
 }

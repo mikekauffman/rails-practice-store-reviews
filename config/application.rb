@@ -23,6 +23,7 @@ module G2Store
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|
       html_tag
     }
+    config.action_mailer.default_url_options = { :host => "example.com"}
 
   end
 end
