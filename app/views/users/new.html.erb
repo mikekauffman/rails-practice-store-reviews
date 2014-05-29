@@ -1,7 +1,11 @@
 <% if @user.errors.any? %>
   <ul class="errors">
     <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <% if message.include? 'Password confirmation' %>
+        <li><%= @user.errors.messages[:password_confirmation].first %></li>
+      <% else %>
+        <li><%= message %></li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
