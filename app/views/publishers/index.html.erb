@@ -1,0 +1,9 @@
+<h1 align="center">Publishers</h1>
+<div id="publishers_description">
+  <% @publishers.each do |publisher| %>
+    <ul>
+      <li><%= publisher.name %></li>
+      <li><%= publisher.city %></li>
+    </ul>
+  <% end %>
+</div>

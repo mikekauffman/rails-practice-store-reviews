@@ -27,7 +27,8 @@ feature 'adding a publisher' do
     fill_in 'publisher[city]', with: 'New York'
     click_on 'Save Publisher'
     expect(page).to have_content 'Publisher Penguin Books successfully added'
-    expect(current_path).to eq '/publishers/new'
+    expect(page).to have_content 'New York'
+    expect(current_path).to eq '/publishers'
   end
 
   scenario 'user cannot add a publisher with blank fields' do
