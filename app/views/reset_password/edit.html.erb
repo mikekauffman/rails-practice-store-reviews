@@ -1,3 +1,15 @@
+<% if @user.errors.any? %>
+  <ul class="errors">
+    <% @user.errors.full_messages.each do |message| %>
+      <% if message.include? 'Password confirmation' %>
+        <li><%= @user.errors.messages[:password_confirmation].first %></li>
+      <% else %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="form_container">
   <h2>Reset Password</h2>
   <%= form_for :user, url: "/reset_password/#{params[:reset_token]}", method: :post do |f| %>

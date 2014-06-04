@@ -17,7 +17,6 @@ class ResetPasswordController < ApplicationController
   def edit
     @user = User.find_by(reset_token: params[:reset_token])
     if @user != nil
-    #p "EDIT USER: #{@user}"
       @reset_password = User.new
     else
       redirect_to login_path, alert: "That link has expired, please click 'Forgot Passsword?' link."
@@ -26,9 +25,8 @@ class ResetPasswordController < ApplicationController
 
   def update
     @user = User.find_by(reset_token: params[:token])
-    if @user.update_attributes(allowed_parameters)
+    if @user.update_attributes(password: params[:user][:password].presence, password_confirmation: params[:user][:password_confirmation].presence)
       @user.update(reset_token: "")
-      #p "IS TOKEN HERE?: #{@user.reset_token}"
       redirect_to :login
     else
       render :edit
