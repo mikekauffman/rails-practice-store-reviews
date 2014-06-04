@@ -1,0 +1,9 @@
+<div id="authors_description">
+  <% @authors.each do |author| %>
+    <ul>
+      <li><%= author.first_name %> <%= author.last_name %></li>
+      <li><%= author.bio %></li>
+    </ul>
+
+  <% end %>
+</div>
