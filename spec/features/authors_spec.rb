@@ -29,7 +29,8 @@ feature 'User can add an author' do
     fill_in 'author[bio]', with: 'He is an old grey haired man who writes books.'
     click_on 'Save Author'
     expect(page).to have_content 'Author Thomas Killjoy successfully added'
-    expect(current_path).to eq '/authors/new'
+    expect(page).to have_content 'He is an old grey haired man who writes books.'
+    expect(current_path).to eq '/authors'
   end
 
   scenario 'guests and non-admins cannot add new authors' do

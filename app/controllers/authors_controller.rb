@@ -1,5 +1,9 @@
 class AuthorsController < ApplicationController
 
+  def index
+    @authors = Author.all
+  end
+
   def new
     if is_admin?
       @author = Author.new
@@ -12,7 +16,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
-      redirect_to new_author_path, notice: "Author #{@author.first_name} #{@author.last_name} successfully added"
+      redirect_to authors_path, notice: "Author #{@author.first_name} #{@author.last_name} successfully added"
     else
       render new_author_path, notice: "Something went wrong."
     end
