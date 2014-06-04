@@ -12,13 +12,15 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'carrierwave', '~> 0.10.0'
+gem 'fog', '~> 1.22.1'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
   gem 'launchy', '~> 2.4.2'
-  gem 'dotenv-rails', '~> 0.11.1'
 end
 
 group :production do

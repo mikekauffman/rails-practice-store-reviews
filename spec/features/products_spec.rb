@@ -44,7 +44,7 @@ feature 'shopping for products' do
     fill_in 'product[hardcover_price]', with: 19.99
     fill_in 'product[softcover_price]', with: 9.99
     fill_in 'product[description]', with: "This is the description"
-    fill_in 'product[image_url]', with: 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg'
+    page.attach_file("product[image_url]", "#{Rails.root}/spec/assets/download.jpeg")
     fill_in 'product[published_date]', with: "1/1/2014"
     select 'Arthur Radcliffe', from: 'Author'
     select 'Arthur Books', from: 'Publisher'
@@ -52,13 +52,14 @@ feature 'shopping for products' do
 
     expect(current_path).to eq '/'
     expect(page).to have_content 'Product successfully added'
+    product = Product.last
 
     expect(page).to have_content "Radcliffe"
     expect(page).to have_content "Arthur Books"
     expect(page).to have_content "(Jan 1, 2014)"
     expect(page).to have_content "19.99"
     expect(page).to have_content "(Softcover)"
-    page.has_css?(:text => 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg', :visible => true)
+    expect(page).to have_xpath("//img[@src=\"/uploads/product/image_url/#{product.id}/download.jpeg\"]")
 
     click_link "Making Bricks With 3D-Printers"
 
@@ -68,7 +69,7 @@ feature 'shopping for products' do
     expect(page).to have_content "(Jan 1, 2014)"
     expect(page).to have_content "9.99"
     expect(page).to have_content "(Softcover)"
-    page.has_css?(:text => 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg', :visible => true)
+    expect(page).to have_xpath("//img[@src=\"/uploads/product/image_url/#{product.id}/download.jpeg\"]")
   end
 
   scenario 'Error is displayed when Author or Publisher are left blank' do
@@ -81,7 +82,7 @@ feature 'shopping for products' do
     fill_in 'product[hardcover_price]', with: 19.99
     fill_in 'product[softcover_price]', with: 9.99
     fill_in 'product[description]', with: "This is the description"
-    fill_in 'product[image_url]', with: 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg'
+    page.attach_file("product[image_url]", "#{Rails.root}/spec/assets/download.jpeg")
     fill_in 'product[published_date]', with: "1/1/2014"
 
     click_on 'Save Product'
