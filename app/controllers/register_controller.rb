@@ -1,10 +1,6 @@
 class RegisterController < ApplicationController
 
   def create
-    #user = User.find_by(email: params[:session][:email])
-
-
-
     if user.present? && decrypted_password(user.password_digest) == params[:session][:password]
       session[:id] = user.id
       flash[:notice] = "Welcome #{user.email}"

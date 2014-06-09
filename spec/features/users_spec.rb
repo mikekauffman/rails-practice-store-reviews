@@ -87,7 +87,6 @@ feature 'User Registration' do
     click_button 'Reset my password'
 
 
-
     expect(ActionMailer::Base.deliveries.length).to eq (emails_sent + 1)
     expect(page).to have_content 'A Reset email has been sent if email is valid.'
 
@@ -103,11 +102,11 @@ feature 'User Registration' do
     fill_in 'user[password]', with: 'password2'
     fill_in 'user[password_confirmation]', with: 'password2'
     click_button 'Update password'
-
+    expect(page).to have_content("Please use your new password to login.")
     fill_in 'session[email]', with: 'user@example.com'
     fill_in 'session[password]', with: 'password2'
     click_button 'Login'
     expect(page).to have_content 'Welcome, user@example.com'
   end
-  
+
 end

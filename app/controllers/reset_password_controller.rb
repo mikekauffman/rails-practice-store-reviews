@@ -27,7 +27,7 @@ class ResetPasswordController < ApplicationController
     @user = User.find_by(reset_token: params[:token])
     if @user.update_attributes(password: params[:user][:password].presence, password_confirmation: params[:user][:password_confirmation].presence)
       @user.update(reset_token: "")
-      redirect_to :login
+      redirect_to :login, notice: "Please use your new password to login."
     else
       render :edit
     end
