@@ -16,6 +16,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'fog', '~> 1.22.1'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'dotenv-rails'
+gem 'money', '~> 6.1.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'

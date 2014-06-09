@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(allowed_parameters)
-    if @product.save
+    @product = Product.create_and_convert_money(allowed_parameters)
+    if @product.valid?
       redirect_to root_path, notice: "Product successfully added"
     else
       render :new
@@ -22,6 +22,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @hardcover = Money.new(@product.hardcover_price, "USD")
+    @softcover = Money.new(@product.softcover_price, "USD")
   end
 
   private
