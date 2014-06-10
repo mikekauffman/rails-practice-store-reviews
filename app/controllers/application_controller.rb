@@ -15,5 +15,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :is_admin?, :is_logged_in?
+  def current_cart
+    if session[:cart_id]
+      @cart = Cart.find(session[:cart_id])
+    else
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+    end
+  end
+
+  helper_method :is_admin?, :is_logged_in?, :current_cart
 end
+

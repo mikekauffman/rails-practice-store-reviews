@@ -21,8 +21,15 @@
         <%= @product.softcover_price %> (Softcover)
       </li>
     </div>
-    <!--end product_price-->
+    <!--end product_price-->>
   </div>
   <!--end product_description-->
+  <div class="add_to_cart">
+    <strong>
+      <%= button_to "Add To Cart", :controller => "carts",
+                  :action => "add", :id => @product.id %>
+    </strong>
+  </div>
+  <!--end of add_to_cart-->
 </div>
 <!--end product_container-->
