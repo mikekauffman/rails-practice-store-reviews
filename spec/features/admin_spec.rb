@@ -3,16 +3,16 @@ require 'spec_helper'
 feature 'Admin users' do
   before do
     User.create!(
-      email: 'admin@example.com',
-      password: 'password1',
-      password_confirmation: 'password1',
-      admin: true
+        email: 'admin@example.com',
+        password: 'password1',
+        password_confirmation: 'password1',
+        admin: true
     )
     User.create!(
-      email: 'not-admin@example.com',
-      password: 'password1',
-      password_confirmation: 'password1',
-      admin: false
+        email: 'not-admin@example.com',
+        password: 'password1',
+        password_confirmation: 'password1',
+        admin: false
     )
   end
   scenario 'Admin visits a users page and logs in' do
