@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UserMailer do
   let :user do
-    User.create!(email: "new-user@example.com", password: "password1", password_confirmation: "password1")
+    User.new(email: "new-user@example.com", password: "password1", password_confirmation: "password1")
   end
   let(:welcome_message) { UserMailer.welcome_email(user) }
 
