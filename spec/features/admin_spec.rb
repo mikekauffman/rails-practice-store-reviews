@@ -40,9 +40,27 @@ feature 'Admin users' do
 
   scenario 'Admins see a link to add a publisher, author, and product' do
     visit '/'
-    expect(page).to_not have_link 'Add Publisher'
-    expect(page).to_not have_link 'Add Author'
-    expect(page).to_not have_link 'Add Product'
+    within('nav') do
+      expect(page).to_not have_link 'Add Publisher'
+      expect(page).to_not have_link 'Add Author'
+      expect(page).to_not have_link 'Add Product'
+    end
+
+    click_link 'Login'
+
+    fill_in 'session[email]', with: 'not-admin@example.com'
+    fill_in 'session[password]', with: 'password1'
+    click_button 'Login'
+
+    expect(page).to have_content 'Welcome, not-admin@example.com'
+
+    within('nav') do
+      expect(page).to_not have_link 'Add Publisher'
+      expect(page).to_not have_link 'Add Author'
+      expect(page).to_not have_link 'Add Product'
+    end
+
+    click_link 'Logout'
 
     click_link 'Login'
 

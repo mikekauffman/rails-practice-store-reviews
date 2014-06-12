@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'User Registration' do
-  scenario 'User can create an account and a welcome email is sent' do
+  scenario 'User can create an account, a welcome email is sent and they are logged in' do
     visit '/'
 
     emails_sent = ActionMailer::Base.deliveries.length
@@ -14,7 +14,6 @@ feature 'User Registration' do
     click_button 'Register'
 
     expect(page).to have_content 'Welcome, actionmailer@example.com'
-    expect(page).to_not have_link 'Add Publisher'
     expect(ActionMailer::Base.deliveries.length).to eq (emails_sent + 1)
 
     expect(page).to_not have_content 'Login'
