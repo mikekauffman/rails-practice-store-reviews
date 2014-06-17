@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   resources :authors
 
+  get '/carts', to: 'carts#add'
+
+  get '/carts/:id', to: 'carts#show', as: :cart
+
+  post '/carts', to: 'carts#add'
+
   get '/login', to: 'sessions#new', as: :login
 
   post '/sessions', to: 'sessions#create', as: :new_session
