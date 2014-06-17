@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20140609200658) do
 
   create_table "products", force: true do |t|
     t.string   "name"
-    t.float    "hardcover_price"
-    t.float    "softcover_price"
+    t.integer  "hardcover_price"
+    t.integer  "softcover_price"
     t.string   "image_url"
     t.string   "description"
     t.date     "published_date"
