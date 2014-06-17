@@ -75,3 +75,63 @@ body a {
   text-align: center;
   padding-right: 40px;
 }
+
+.shopping_cart
+{
+  display: table;
+  margin: 0 auto;
+}
+.shopping_cart_title
+{
+  display: table-caption;
+  text-align: left;
+  font-weight: bold;
+  font-size: larger;
+
+}
+
+.row
+{
+  display: table-row;
+}
+
+
+.cell
+{
+  display: table-cell;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.row:nth-of-type(odd) {
+  background: #e0e0e0;
+}
+
+.cell_1
+{
+  display: table-cell;
+  padding-left: 5px;
+  padding-right: 200px;
+}
+
+.cell_quantity {
+  display: table-cell;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-right: solid;
+  border-left: solid;
+}
+
+.total {
+  display: table;
+  margin: 0 auto;
+  width: 50%;
+  text-align: right;
+}
+
+.total_title {
+  display: table-caption;
+  font-weight: bold;
+  font-size: larger;
+
+}
