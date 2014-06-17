@@ -14,8 +14,8 @@ feature 'shopping for products' do
     publisher = Publisher.create!(name: 'Arthur Books', city: 'Denver')
     product = Product.create!(
       name: 'Test Book',
-      hardcover_price: 10,
-      softcover_price: 8,
+      hardcover_price_in_cents: 1000,
+      softcover_price_in_cents: 800,
       description: 'This is a description',
       image_url: 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg',
       published_date: '1/1/2010',

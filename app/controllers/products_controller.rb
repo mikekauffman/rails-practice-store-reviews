@@ -12,8 +12,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create_and_convert_money(allowed_parameters)
-    if @product.valid?
+    @product = Product.new(allowed_parameters)
+
+    @product.hardcover_price_in_cents = convert_price(params[:product][:hardcover_price])
+    @product.softcover_price_in_cents = convert_price(params[:product][:softcover_price])
+
+    if @product.save
       redirect_to root_path, notice: "Product successfully added"
     else
       render :new
@@ -22,8 +26,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @hardcover = Money.new(@product.hardcover_price, "USD")
-    @softcover = Money.new(@product.softcover_price, "USD")
+    @hardcover = Money.new(@product.hardcover_price_in_cents, "USD")
+    @softcover = Money.new(@product.softcover_price_in_cents, "USD")
   end
 
   private
@@ -33,5 +37,9 @@ class ProductsController < ApplicationController
                                     :description, :published_date,
                                     :author_id, :publisher_id
                                     )
+  end
+
+  def convert_price(price)
+    price.gsub(".","").to_i
   end
 end

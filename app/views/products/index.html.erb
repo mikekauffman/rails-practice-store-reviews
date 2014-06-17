@@ -20,10 +20,10 @@
         </li>
         <div class="product_price">
           <li>
-            $<%= Money.new(product.hardcover_price, "USD") %> (Hardcover)
+            $<%= Money.new(product.hardcover_price_in_cents, "USD") %> (Hardcover)
           </li>
           <li>
-            $<%= Money.new(product.softcover_price, "USD") %> (Softcover)
+            $<%= Money.new(product.softcover_price_in_cents, "USD") %> (Softcover)
           </li>
         </div>
         <!--end product_price-->
