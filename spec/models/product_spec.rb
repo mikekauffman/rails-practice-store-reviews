@@ -6,8 +6,8 @@ describe Product do
     @publisher = Publisher.create!(name: 'Arthur Books', city: 'Denver')
     @new_product = Product.create(
       name: "Making Bricks with 3D Printers",
-      hardcover_price: 19.99,
-      softcover_price: 9.99,
+      hardcover_price_in_cents: 19.99,
+      softcover_price_in_cents: 9.99,
       image_url: 'http://fc04.deviantart.net/fs70/f/2012/306/d/c/fahrenheit_451__movie_poster_by_trzytrzy-d5jrq21.jpg',
       description: 'For the poor programmer',
       published_date: '2014-01-01'
@@ -34,5 +34,12 @@ describe Product do
     @new_product.publisher_id = nil
 
     expect(@new_product.valid?).to eq false
+  end
+
+  it 'converts hardcover prices to their value in cents' do
+    product = Product.new(hardcover_price: "$20.00")
+
+    expect(product.hardcover_price).to eq("$20.00")
+    expect(product.hardcover_price_in_cents).to eq(2000)
   end
 end

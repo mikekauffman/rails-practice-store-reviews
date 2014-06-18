@@ -1,0 +1,18 @@
+<div class="product_description">
+  <div>
+    <%= link_to product.name, product_path(product) %>
+    <%= product.author.last_name %>
+  </div>
+  <div>
+    <%= product.publisher.name %>
+    <% if product.published_date %>
+        <%= product.published_date.strftime("(%b %-d, %Y)") %>
+    <% end %>
+  </div>
+  <div class="product_price">
+    <%= product.hardcover_price %> (Hardcover)
+  </div>
+  <div class="product_price">
+    $<%= Money.new(product.softcover_price_in_cents, "USD") %> (Softcover)
+  </div>
+</div>

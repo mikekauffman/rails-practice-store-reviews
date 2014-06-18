@@ -13,13 +13,12 @@ body a {
   width: 100%;
 }
 
-.product_container {
-  margin-top: 30px;
-  margin-left: 10%;
-  margin-bottom: 2em;
+.product {
+  margin-left: 35%;
+  margin-bottom: 10%;
 }
 
-.product_container a:first-child {
+.product a:first-child {
   font-weight: bold;
 }
 
@@ -46,15 +45,8 @@ body a {
 }
 
 .product_description {
-  display: inline-block;
-  vertical-align: top;
   font-size: 1.2em;
   line-height: 2em;
-  margin-left: 20px;
-}
-
-.product_description li {
-  list-style-type: none;
 }
 
 .product_price {

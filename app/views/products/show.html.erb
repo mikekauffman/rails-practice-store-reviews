@@ -1,35 +1,8 @@
-<div class="product_container">
-  <div class="product_picture_large">
-    <img src='<%= @product.image_url.url %>'>
-  </div>
-  <!--end product_picture-->
-  <div class="product_description">
-    <li>
-      <%= link_to @product.name, product_path(@product) %>
-    </li>
-    <li>
-      <%= @product.publisher.name %>
-      <% if @product.published_date %>
-        <%= @product.published_date.strftime("(%b %-d, %Y)") %>
-      <% end %>
-    </li>
-    <div class="product_price">
-      <li>
-        $<%= @hardcover %> (Hardcover)
-      </li>
-      <li>
-        $<%= @softcover %> (Softcover)
-      </li>
-    </div>
-    <!--end product_price-->>
-  </div>
-  <!--end product_description-->
-  <div class="add_to_cart">
-    <strong>
-      <%= button_to "Add To Cart", :controller => "carts",
-                  :action => "add", :id => @product.id %>
-    </strong>
-  </div>
-  <!--end of add_to_cart-->
+<div class="product">
+  <% if @product.image_url.present? %>
+      <div class="product_picture_large">
+        <img src='<%= @product.image_url.url %>'>
+      </div>
+  <% end %>
+  <%= render partial: 'product_description', locals: {product: @product} %>
 </div>
-<!--end product_container-->

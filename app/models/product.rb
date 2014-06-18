@@ -7,17 +7,28 @@ class Product < ActiveRecord::Base
 
   validates :author_id, :publisher_id, presence: true, allow_blank: false
 
+  def hardcover_price=(price)
+    self.hardcover_price_in_cents = price_to_cents(price)
+  end
 
-  def self.create_and_convert_money(params)
-    create do |product|
-      product.name = params[:name]
-      product.hardcover_price = (params[:hardcover_price].to_f * 100).round
-      product.softcover_price = (params[:softcover_price].to_f * 100).round
-      product.description = params[:description]
-      product.published_date = params[:published_date]
-      product.author_id = params[:author_id]
-      product.publisher_id = params[:publisher_id]
-      product.image_url = params[:image_url]
-    end
+  def hardcover_price
+    format_as_money(self.hardcover_price_in_cents)
+  end
+
+  def softcover_price=(price)
+    self.softcover_price_in_cents = price_to_cents(price)
+  end
+
+  def softcover_price
+    format_as_money(self.softcover_price_in_cents)
+  end
+
+  private
+  def price_to_cents(price)
+    price.delete(' ').delete('$').strip.gsub(".", "").to_i
+  end
+
+  def format_as_money(price)
+    "$#{Money.new(price, "USD")}"
   end
 end

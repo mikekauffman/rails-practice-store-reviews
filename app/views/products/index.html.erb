@@ -1,35 +1,4 @@
 <div class="content_container">
   <p class="flash_notice"><%= flash[:alert] %></p>
-
-  <% @products.each do |product| %>
-    <div class="product_container">
-      <div class="product_picture_small">
-        <img src='<%= product.image_url %>'>
-      </div>
-      <!--end product_picture-->
-      <div class="product_description">
-        <li>
-          <%= link_to product.name, product_path(product) %>
-          <%= product.author.last_name %>
-        </li>
-        <li>
-          <%= product.publisher.name %>
-          <% if product.published_date %>
-            <%= product.published_date.strftime("(%b %-d, %Y)") %>
-          <% end %>
-        </li>
-        <div class="product_price">
-          <li>
-            $<%= Money.new(product.hardcover_price, "USD") %> (Hardcover)
-          </li>
-          <li>
-            $<%= Money.new(product.softcover_price, "USD") %> (Softcover)
-          </li>
-        </div>
-        <!--end product_price-->
-      </div>
-      <!--end product_description-->
-    </div>
-    <!--end product_container-->
-  <% end %>
-</div><!--end content_container-->
+  <%= render partial: 'product', collection: @products %>
+</div>
