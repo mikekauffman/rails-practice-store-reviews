@@ -9,10 +9,10 @@ feature 'shopping for products' do
     click_button 'Login'
   end
 
-  scenario 'Users can view existing products' do
+  scenario 'Guest can view existing products' do
     author = Author.create!(first_name: 'Arthur', last_name: 'Radcliffe')
     publisher = Publisher.create!(name: 'Arthur Books', city: 'Denver')
-    product = Product.create!(
+    Product.create!(
       name: 'Test Book',
       hardcover_price_in_cents: 1000,
       softcover_price_in_cents: 800,
@@ -25,10 +25,12 @@ feature 'shopping for products' do
 
     visit '/'
 
-    expect(page).to have_content 'Test Book'
-    expect(page).to have_content '(Jan 1, 2010)'
-    expect(page).to have_content 'Radcliffe'
-    expect(page).to have_content 'Arthur Books'
+    within('.product') do
+      expect(page).to have_content 'Test Book'
+      expect(page).to have_content '(Jan 1, 2010)'
+      expect(page).to have_content 'Radcliffe'
+      expect(page).to have_content 'Arthur Books'
+    end
   end
 
   scenario 'Admins can create a product and view its show page' do
@@ -64,7 +66,7 @@ feature 'shopping for products' do
     click_link "Making Bricks With 3D-Printers"
 
     expect(page).to have_content "Making Bricks With 3D-Printers"
-    expect(page).to_not have_content "Radcliffe"
+    expect(page).to have_content "Radcliffe"
     expect(page).to have_content "Arthur Books"
     expect(page).to have_content "(Jan 1, 2014)"
     expect(page).to have_content "9.99"

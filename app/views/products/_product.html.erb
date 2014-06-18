@@ -1,0 +1,8 @@
+<div class="product">
+  <% if product.image_url.present? %>
+      <div class="product_picture_small">
+        <img src='<%= product.image_url %>'>
+      </div>
+  <% end %>
+  <%= render partial: 'product_description', locals: {product: product} %>
+</div>
