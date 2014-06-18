@@ -16,6 +16,6 @@
 /tmp
 .env
 /public/uploads
-.idea
+.idea/*
 .idea/g2-store.iml
 
