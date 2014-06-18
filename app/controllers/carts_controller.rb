@@ -9,8 +9,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
-    @cart_items = CartItem.find_by_cart_id(@cart.id)
-    @products = Product.find(@cart_items.product_id)
+    @cart_items = CartItem.all.includes(:product)
   end
 end
 

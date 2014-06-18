@@ -1,45 +1,34 @@
-<%= @products.name %> is in your cart
-
-
-
-
-
 <div class="shopping_cart">
   <div class="shopping_cart_title">
     <p>My Cart</p>
   </div>
-  <div class="row">
-    <div class="cell_1">
-      <p>Book Name Will Go Here</p>
-    </div>
-    <div class="cell_quantity">
-      <p>Quantity Go Here</p>
-    </div>
-    <div class="cell">
-      <p>Price Goes Here</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="cell">
-      <p>Book Name Will Go Here</p>
-    </div>
-    <div class="cell_quantity">
-      <p>Quantity Go Here</p>
-    </div>
-    <div class="cell">
-      <p>Price Goes Here</p>
-    </div>
-  </div>
-</div>
 
+
+    <% @cart_items.each do |item| %>
+    <div class="row">
+      <div class="cell_1"><p><%= item.product.name %></p>
+      </div>
+    <div class="cell_quantity">
+
+      <!--  {cart_item: {quantity: {1 => 2}}} -->
+      <p><input type="number" value="1" name="cart_item[quantity][<%= item.id %>]" /></p>
+
+    </div>
+    <div class="cell">
+      <p>$<%= item.product.hardcover_price %></p>
+    </div>
+    </div>
+<% end %>
+    </div>
 <div class="total">
   <div class="total_title">
     <p>Total</p>
+
     <div class="button">
       <%= submit_tag "Checkout" %>
     </div>
   </div>
-  </div>
+</div>
 
 
 

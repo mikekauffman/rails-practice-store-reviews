@@ -87,7 +87,6 @@ body a {
   text-align: left;
   font-weight: bold;
   font-size: larger;
-
 }
 
 .row
@@ -99,8 +98,8 @@ body a {
 .cell
 {
   display: table-cell;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 3%;
+  padding-right: 25%;
 }
 
 .row:nth-of-type(odd) {
@@ -125,7 +124,7 @@ body a {
 .total {
   display: table;
   margin: 0 auto;
-  width: 50%;
+  padding-left: 47%;
   text-align: right;
 }
 
@@ -133,5 +132,4 @@ body a {
   display: table-caption;
   font-weight: bold;
   font-size: larger;
-
 }
