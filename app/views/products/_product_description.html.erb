@@ -13,6 +13,12 @@
     <%= product.hardcover_price %> (Hardcover)
   </div>
   <div class="product_price">
-    $<%= Money.new(product.softcover_price_in_cents, "USD") %> (Softcover)
+    <%= product.softcover_price  %> (Softcover)
+  </div>
+  <div class="add_to_cart">
+    <strong>
+      <%= button_to "Add To Cart", :controller => "carts",
+                    :action => "add", :id => product.id %>
+    </strong>
   </div>
 </div>
