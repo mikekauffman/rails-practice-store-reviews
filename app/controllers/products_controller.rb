@@ -14,9 +14,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(allowed_parameters)
 
-    @product.hardcover_price_in_cents = convert_price(params[:product][:hardcover_price])
-    @product.softcover_price_in_cents = convert_price(params[:product][:softcover_price])
-
     if @product.save
       redirect_to root_path, notice: "Product successfully added"
     else
@@ -37,9 +34,5 @@ class ProductsController < ApplicationController
                                     :description, :published_date,
                                     :author_id, :publisher_id
                                     )
-  end
-
-  def convert_price(price)
-    price.gsub(".","").to_i
   end
 end
