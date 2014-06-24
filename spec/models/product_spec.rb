@@ -47,5 +47,17 @@ describe Product do
     product = Product.new(hardcover_price: "$20")
 
     expect(product.hardcover_price_in_cents).to eq(2000)
+    end
+  
+  it 'converts price without decimal to correct value in cents' do
+    product = Product.new(hardcover_price: "$20.0")
+
+    expect(product.hardcover_price_in_cents).to eq(2000)
+    end
+  
+  it 'converts price with decimal in weird spot to correct value in cents' do
+    product = Product.new(hardcover_price: "$20.")
+
+    expect(product.hardcover_price_in_cents).to eq(2000)
   end
 end

@@ -6,8 +6,7 @@ class Product < ActiveRecord::Base
   has_many :carts, :through => :cart_items
 
   validates :author_id, :publisher_id, presence: true, allow_blank: false
-  
-  
+
 
   def hardcover_price=(price)
     self.hardcover_price_in_cents = price_to_cents(price)
@@ -27,10 +26,21 @@ class Product < ActiveRecord::Base
 
   private
   def price_to_cents(price)
-    if price.include?(".")
-      price.delete(' ').delete('$').strip.gsub(".", "").to_i
+    digit_only_price = price.delete('$')
+    
+    if digit_only_price.match(/\.(\d{2})/)
+      digit_only_price.delete(' ').strip.gsub(".", "").to_i
+    elsif digit_only_price.match(/\.(\d{1})/)
+      digit_only_price = "#{digit_only_price}0"
+      digit_only_price.delete(' ').strip.gsub(".", "").to_i
+    elsif
+      !digit_only_price.include?(".") 
+      digit_only_price.delete(' ').strip.to_i * 100
+    elsif
+      digit_only_price.include?(".")
+      digit_only_price.delete(' ').strip.to_i * 100
     else
-      price.delete(' ').delete('$').strip.to_i * 100
+      digit_only_price.delete(' ').strip.gsub(".", "").to_i
     end
   end
 
