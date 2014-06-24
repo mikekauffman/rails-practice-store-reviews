@@ -30,7 +30,6 @@ class Product < ActiveRecord::Base
     if price.include?(".")
       price.delete(' ').delete('$').strip.gsub(".", "").to_i
     else
-      p price
       price.delete(' ').delete('$').strip.to_i * 100
     end
   end
