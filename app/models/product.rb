@@ -25,22 +25,26 @@ class Product < ActiveRecord::Base
   end
 
   private
+  def strip_money(digit_only_price)
+    digit_only_price.gsub(".", "").to_i
+  end
+  
   def price_to_cents(price)
     digit_only_price = price.delete('$')
     
     if digit_only_price.match(/\.(\d{2})/)
-      digit_only_price.strip.gsub(".", "").to_i
+      strip_money(digit_only_price)
     elsif digit_only_price.match(/\.(\d{1})/)
       digit_only_price = "#{digit_only_price}0"
-      digit_only_price.strip.gsub(".", "").to_i
+      strip_money(digit_only_price)
     elsif
-      !digit_only_price.include?(".") 
-      digit_only_price.strip.to_i * 100
+      !digit_only_price.include?(".")
+      strip_money(digit_only_price) * 100
     elsif
       digit_only_price.include?(".")
       digit_only_price.strip.to_i * 100
     else
-      digit_only_price.strip.gsub(".", "").to_i
+      strip_money(digit_only_price)
     end
   end
 
