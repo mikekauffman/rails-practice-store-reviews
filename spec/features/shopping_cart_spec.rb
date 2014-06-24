@@ -8,6 +8,7 @@ feature "Shopping Cart" do
     click_on 'Add To Cart'
     expect(page).to have_content 'My Cart'
     expect(page).to have_content 'Great Gatsby'
+    expect(page).to have_content 'Total: $10.00'
 
     # Button to add item to cart is replaced by text after item is added to cart
     visit product_path(product)

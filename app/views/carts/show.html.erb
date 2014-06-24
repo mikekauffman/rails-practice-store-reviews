@@ -27,12 +27,11 @@
       <p><%= item.product.hardcover_price %></p>
     </div>
     </div>
-<% end %>
+  <% end %>
     </div>
 <div class="total">
   <div class="total_title">
-    <p>Total</p>
-
+    <p>Total: <%=  @total%> </p>
     <div class="button">
       <%= submit_tag "Checkout" %>
     </div>
