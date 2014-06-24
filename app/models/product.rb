@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
   has_many :carts, :through => :cart_items
 
   validates :author_id, :publisher_id, presence: true, allow_blank: false
+  
+  
 
   def hardcover_price=(price)
     self.hardcover_price_in_cents = price_to_cents(price)
@@ -25,10 +27,15 @@ class Product < ActiveRecord::Base
 
   private
   def price_to_cents(price)
-    price.delete(' ').delete('$').strip.gsub(".", "").to_i
+    if price.include?(".")
+      price.delete(' ').delete('$').strip.gsub(".", "").to_i
+    else
+      price.delete(' ').delete('$').strip.to_i * 100
+    end
   end
 
   def format_as_money(price)
     "$#{Money.new(price, "USD")}"
   end
+
 end
