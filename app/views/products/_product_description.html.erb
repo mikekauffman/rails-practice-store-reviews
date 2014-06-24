@@ -13,12 +13,16 @@
     <%= product.hardcover_price %> (Hardcover)
   </div>
   <div class="product_price">
-    <%= product.softcover_price  %> (Softcover)
+    <%= product.softcover_price %> (Softcover)
   </div>
   <div class="add_to_cart">
     <strong>
-      <%= button_to "Add To Cart", :controller => "carts",
-                    :action => "add", :id => product.id %>
+          <% if @cart_item.find_by_product_id(product.id) %>
+              <div>Item is already in your cart</div>
+          <% else %>
+              <%= button_to "Add To Cart", :controller => "carts",
+                      :action => "add", :id => product.id %>
+          <% end %>
     </strong>
   </div>
 </div>

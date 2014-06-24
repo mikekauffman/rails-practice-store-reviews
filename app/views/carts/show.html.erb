@@ -1,8 +1,18 @@
 <div class="shopping_cart">
   <div class="shopping_cart_title">
-    <p>My Cart</p>
+    <h2>My Cart</h2>
   </div>
-
+  <div class="row">
+    <div class="cell_1">
+      <h2>Book Name</h2>
+    </div>
+  <div class="cell_quantity">
+    <h2>Quanity</h2>
+    </div>
+    <div class="cell">
+      <h2> Price </h2>
+      </div>
+    </div>
 
     <% @cart_items.each do |item| %>
     <div class="row">
@@ -10,20 +20,18 @@
       </div>
     <div class="cell_quantity">
 
-      <!--  {cart_item: {quantity: {1 => 2}}} -->
       <p><input type="number" value="1" name="cart_item[quantity][<%= item.id %>]" /></p>
 
     </div>
     <div class="cell">
-      <p>$<%= item.product.hardcover_price %></p>
+      <p><%= item.product.hardcover_price %></p>
     </div>
     </div>
-<% end %>
+  <% end %>
     </div>
 <div class="total">
   <div class="total_title">
-    <p>Total</p>
-
+    <p>Total: <%=  @total%> </p>
     <div class="button">
       <%= submit_tag "Checkout" %>
     </div>
