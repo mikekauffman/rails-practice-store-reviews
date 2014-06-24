@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
+    CartItem.delete_all
     redirect_to root_path
   end
   private

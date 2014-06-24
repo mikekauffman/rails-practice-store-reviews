@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @cart_item = CartItem.all
   end
 
   def new
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @hardcover = Money.new(@product.hardcover_price_in_cents, "USD")
     @softcover = Money.new(@product.softcover_price_in_cents, "USD")
+    @cart_item = CartItem.all
   end
 
   private
