@@ -43,7 +43,7 @@ feature 'shopping for products' do
     click_link 'Add Product'
 
     fill_in 'product[name]', with: "Making Bricks With 3D-Printers"
-    fill_in 'product[hardcover_price]', with: 19.99
+    fill_in 'product[hardcover_price]', with: "$19.99"
     fill_in 'product[softcover_price]', with: 9.99
     fill_in 'product[description]', with: "This is the description"
     page.attach_file("product[image_url]", "#{Rails.root}/spec/assets/download.jpeg")

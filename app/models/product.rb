@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
   end
 
   def hardcover_price
-    format_as_money(self.hardcover_price_in_cents)
+    format_as_money(self.hardcover_price_in_cents) 
   end
 
   def softcover_price=(price)
@@ -30,21 +30,10 @@ class Product < ActiveRecord::Base
   end
   
   def price_to_cents(price)
-    digit_only_price = price.delete('$')
-    
-    if digit_only_price.match(/\.(\d{2})/)
-      strip_money(digit_only_price)
-    elsif digit_only_price.match(/\.(\d{1})/)
-      digit_only_price = "#{digit_only_price}0"
-      strip_money(digit_only_price)
-    elsif
-      !digit_only_price.include?(".")
-      strip_money(digit_only_price) * 100
-    elsif
-      digit_only_price.include?(".")
-      digit_only_price.strip.to_i * 100
+     if price.include?(".")
+       price.delete('$').gsub(".", "").strip.to_i
     else
-      strip_money(digit_only_price)
+       price.delete('$').strip.to_i * 100
     end
   end
 
