@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :publishers
 
   resources :authors
+  
+  resources :charges
 
   get '/carts', to: 'carts#add'
 
@@ -29,5 +31,6 @@ Rails.application.routes.draw do
   get '/reset_password', to: 'reset_password#edit', as: :edit_password
 
   post '/reset_password/:token', to: 'reset_password#update'
+  
 
 end
