@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Admin users' do
   before do
+    DatabaseCleaner.clean
     User.create!(
         email: 'admin@example.com',
         password: 'password1',
