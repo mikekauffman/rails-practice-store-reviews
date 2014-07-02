@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 feature 'shopping for products' do
+  before do
+    DatabaseCleaner.clean
+  end
+
   def log_in(user)
     visit '/'
     click_link 'Login'

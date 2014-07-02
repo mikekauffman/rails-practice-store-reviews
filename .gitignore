@@ -18,4 +18,5 @@
 /public/uploads
 .idea/*
 .idea/g2-store.iml
+.idea/modules.xml
 

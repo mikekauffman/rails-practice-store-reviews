@@ -1,22 +1,23 @@
 require 'spec_helper'
 
 describe User do
+  before do
+    DatabaseCleaner.clean
+  end
   it 'Creates admin and non-admin users' do
-    admin = User.new(
+    admin = User.create!(
       email: 'admin@example.com',
       password: 'password1',
       password_confirmation: 'password1',
       admin: true
     )
-    admin.save!
     expect(User.last).to eq admin
-    user = User.new(
+    user = User.create!(
       email: 'user@example.com',
       password: 'password1',
       password_confirmation: 'password1',
       admin: false
     )
-    user.save!
     expect(admin.admin?).to eq true
     expect(user.admin?).to eq false
   end

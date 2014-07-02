@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :is_admin?, :is_logged_in?, :current_cart
+  def price_to_cents(price)
+    if price.include?(".")
+      price.delete('$').gsub(".", "").strip.to_i
+    else
+      price.delete('$').strip.to_i * 100
+    end
+  end
+
+  helper_method :is_admin?, :is_logged_in?, :current_cart, :price_to_cents
 end
 
