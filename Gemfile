@@ -26,6 +26,7 @@ group :development, :test do
   gem 'selenium-webdriver', '~> 2.42.0'
   gem 'launchy', '~> 2.4.2'
   gem 'pry'
+  gem 'database_cleaner', '~> 1.3.0'
 end
 
 group :production do

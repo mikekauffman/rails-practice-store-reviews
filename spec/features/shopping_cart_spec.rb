@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 feature "Shopping Cart" do
+  before do
+    DatabaseCleaner.clean
+  end
 
   scenario 'guest user and logged in user can see items in the shopping cart' do
     product = create_product
