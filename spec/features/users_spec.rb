@@ -87,7 +87,7 @@ feature 'User Registration' do
 
 
     expect(ActionMailer::Base.deliveries.length).to eq (emails_sent + 1)
-    expect(page).to have_content 'A Reset email has been sent if email is valid.'
+    expect(page).to have_content 'Please check your email to reset your password.'
 
     found_user = User.find_by(email: "user@example.com")
     expect(found_user.reset_token).to_not be_nil
@@ -97,6 +97,18 @@ feature 'User Registration' do
     result = @doc.xpath("//html//body//p//a//@href")[0].value
 
     visit result
+
+    fill_in 'user[password]', with: 'foo'
+    fill_in 'user[password]', with: 'foo'
+    click_button 'Update password'
+
+    expect(page).to have_content("Password must be at least 8-12 characters with 1 number")
+
+    fill_in 'user[password]', with: 'foo'
+    fill_in 'user[password]', with: 'foo'
+    click_button 'Update password'
+
+    expect(page).to have_content("Password must be at least 8-12 characters with 1 number")
 
     fill_in 'user[password]', with: 'password2'
     fill_in 'user[password_confirmation]', with: 'password2'

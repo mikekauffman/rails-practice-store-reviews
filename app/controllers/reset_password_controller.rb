@@ -11,7 +11,7 @@ class ResetPasswordController < ApplicationController
       @user.update(reset_token: token)
       UserMailer.reset_password(@user).deliver
     end
-    redirect_to root_path, notice: "A Reset email has been sent if email is valid."
+    redirect_to root_path, notice: "Please check your email to reset your password."
   end
 
   def edit
@@ -24,12 +24,12 @@ class ResetPasswordController < ApplicationController
   end
 
   def update
-    @user = User.find_by(reset_token: params[:token])
+    @user = User.find_by(reset_token: params[:reset_token])
     if @user.update_attributes(password: params[:user][:password].presence, password_confirmation: params[:user][:password_confirmation].presence)
       @user.update(reset_token: "")
       redirect_to :login, notice: "Please use your new password to login."
     else
-      render :edit
+      render "edit"
     end
   end
 
