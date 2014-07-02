@@ -2,6 +2,10 @@ require 'spec_helper'
 
 feature "Stripe Charges" do
 
+  before do
+    DatabaseCleaner.clean
+  end
+
   scenario "A guest can buy a book", js: true do
     cart = create_products_and_shopping_cart
     visit "/carts/#{cart.cart_id}"
