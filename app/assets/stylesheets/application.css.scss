@@ -20,6 +20,24 @@
   }
 }
 
+#review-box {
+  border: 1px solid grey;
+  margin: .5em 0 .5em 0;
+
+  #review-email {
+    display: inline-block;
+    margin: .2em .5em 0 .2em;
+  }
+
+  #review-time {
+    float: right;
+    margin: .2em .5em 0 0 ;
+  }
+  p {
+    margin: .5em 0 .5em .2em
+  }
+}
+
 #new-review-box {
   border: 3px solid black;
   h2 {

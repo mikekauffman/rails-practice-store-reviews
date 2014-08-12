@@ -26,7 +26,7 @@
     <%= form_for [@product, @review] do |f| %>
         <%= f.text_area :body, placeholder: 'what do you think?' %>
         <div id="review-form-right">
-          <%= f.select :rating, [1, 2, 3, 4, 5] %>
+          <%= f.select :rating, [nil, 1, 2, 3, 4, 5] %>
           <br>
           <%= f.submit "Submit Review" %>
         </div>

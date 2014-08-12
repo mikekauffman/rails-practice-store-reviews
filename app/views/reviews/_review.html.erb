@@ -1,5 +1,7 @@
-<div id="review-email"><%= review.user.email %></div>
-(<%= review.rating %> stars)
-<div id="review-time"><%= time_ago_in_words(review.created_at)  %> ago</div>
-<br>
-<%= simple_format(review.body) %>
+<div id="review-box">
+  <div id="review-email"><strong><%= review.user.email %></strong></div>
+  (<%= review.rating %> stars)
+  <div id="review-time"><%= time_ago_in_words(review.created_at) %> ago</div>
+  <br>
+  <%= simple_format(review.body) %>
+</div>
