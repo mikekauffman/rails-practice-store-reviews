@@ -1,6 +1,6 @@
 module ProductMethods
 
-  def product_show_methods
+  def product_show_variables
     @cart_item = CartItem.all
     @reviews = @product.reviews
   end

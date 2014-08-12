@@ -43,7 +43,7 @@ feature 'writing reviews on products' do
     expect(page).to have_content 'New Review'
 
     fill_in 'review_body', with: 'This is an awesome book!'
-    fill_in 'review_rating', with: 5
+    select 5, from: 'review_rating'
     click_on 'Submit Review'
 
     expect(page).to have_content 'This is an awesome book!'
@@ -61,7 +61,7 @@ feature 'writing reviews on products' do
     expect(page).to have_content 'New Review'
 
     fill_in 'review_body', with: ''
-    fill_in 'review_rating', with: ''
+    select nil, from: 'review_rating'
     click_on 'Submit Review'
 
     expect(page).to have_content "Body can't be blank"

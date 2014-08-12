@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @review = Review.new
-    product_show_methods
+    product_show_variables
   end
 
   private

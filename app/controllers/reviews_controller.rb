@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to product_path(@product)
     else
-      product_show_methods
+      product_show_variables
       render template: 'products/show'
     end
   end
