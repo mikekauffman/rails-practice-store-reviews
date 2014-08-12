@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  # skipping validations because we needed to customize the
-  # password confirmation message and using the built in validations
-  # caused a huge hack using I18n strings
   has_secure_password(validations: false)
 
   validates_confirmation_of :password, if: ->{ password.present? }, message: "Passwords do not match"

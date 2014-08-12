@@ -1,11 +1,16 @@
+User.destroy_all
+Product.destroy_all
+Publisher.destroy_all
+Author.destroy_all
+
 User.create!(
-  email: 'admin@admin.com',
+  email: 'admin@example.com',
   password: 'password1',
   password_confirmation: 'password1',
   admin: true
 )
 User.create!(
-  email: 'user@user.com',
+  email: 'user@example.com',
   password: 'password1',
   password_confirmation: 'password1',
   admin: false
