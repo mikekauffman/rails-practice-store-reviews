@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   belongs_to :publisher
   has_many :cart_items
   has_many :carts, :through => :cart_items
+  has_many :reviews
 
   validates :author_id, :publisher_id, presence: true, allow_blank: false
 

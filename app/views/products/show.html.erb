@@ -4,6 +4,39 @@
         <img src='<%= @product.image_url.url %>'>
       </div>
   <% end %>
-  <%= render partial: 'product_description', locals: {product: @product} %>
+  <%= render partial: 'products/product_description', locals: {product: @product} %>
 </div>
 
+<div id="reviews">
+  <h1>Reviews</h1>
+  <% if @review.errors.any? %>
+      <div id="errors">
+        <p><strong>Oh no!! Your review was not shared with the world yet!</strong></p>
+        <ul>
+          <% @review.errors.full_messages.each do |error| %>
+              <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+  <br>
+
+  <div id='new-review-box'>
+    <h2>New Review</h2>
+    <%= form_for [@product, @review] do |f| %>
+        <%= f.text_area :body, placeholder: 'what do you think?' %>
+        <div id="review-form-right">
+          <%= f.select :rating, [1, 2, 3, 4, 5] %>
+          <br>
+          <%= f.submit "Submit Review" %>
+        </div>
+    <% end %>
+  </div>
+  <br>
+  <br>
+
+  <div id="reviews-list">
+    <%= render @reviews %>
+  </div>
+
+</div>

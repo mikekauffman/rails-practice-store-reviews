@@ -4,3 +4,46 @@
 @import 'form';
 @import 'errors';
 @import 'charges';
+
+#reviews {
+  margin: auto;
+  width: 50%;
+  #errors {
+    text-decoration: none;
+    color: red;
+    ul {
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+  }
+}
+
+#new-review-box {
+  border: 3px solid black;
+  h2 {
+    background-color: #FBFCEE;
+    margin: -.7em 0 0 1em;
+    position: absolute;
+    padding: 0 .5em 0 .5em;
+  }
+  form {
+    margin: 1em .5em 1em 1em;
+    textarea {
+      height: 5em;
+      width: 55%;
+      margin: auto;
+    }
+    #review-form-right {
+      float: right;
+      margin: 0 5em 0 1em;
+      input {
+        margin: 0 0 1em 0;
+      }
+      select {
+        margin: 0 0 1em 0;
+      }
+    }
+  }
+}

@@ -28,6 +28,8 @@ class ProductsController < ApplicationController
     @hardcover = Money.new(@product.hardcover_price_in_cents, "USD")
     @softcover = Money.new(@product.softcover_price_in_cents, "USD")
     @cart_item = CartItem.all
+    @review = Review.new
+    @reviews = @product.reviews
   end
 
   private
