@@ -1,16 +1,23 @@
 class ReviewsController < ApplicationController
+
+  include ProductMethods
+
   def create
     @product = Product.find(params[:product_id])
-    @review = @product.reviews.new(params.require(:review).permit(:body, :rating))
-    user = User.find(session[:id])
-    @review.user_id = user.id
+    @user = User.find(session[:id])
+    @review = Review.new(review_params)
     if @review.save
       redirect_to product_path(@product)
     else
-      @product = Product.find(params[:product_id])
-      @cart_item = CartItem.all
-      @reviews = @product.reviews
+      product_show_methods
       render template: 'products/show'
     end
   end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:body, :rating).merge(user: @user, product: @product)
+  end
+
 end

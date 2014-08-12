@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  include ProductMethods
+
   def index
     @products = Product.all
     @cart_item = CartItem.all
@@ -15,7 +17,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(allowed_parameters)
-
     if @product.save
       redirect_to root_path, notice: "Product successfully added"
     else
@@ -25,11 +26,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @hardcover = Money.new(@product.hardcover_price_in_cents, "USD")
-    @softcover = Money.new(@product.softcover_price_in_cents, "USD")
-    @cart_item = CartItem.all
     @review = Review.new
-    @reviews = @product.reviews
+    product_show_methods
   end
 
   private
